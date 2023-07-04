@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.artistImg {
+  width: 16rem;
+  height: 20rem;
+  background-size: cover;
+}
+
+.card {
+  border: 1px solid black;
+  width: 16rem;
+  height: 30rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 1rem;
+}
+
+.details h2 {
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.albumsLink {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.2rem;
+  padding: 0;
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    width: 100%;
+  }
+  .card {
+    width: 15rem;
+  }
+
+  .artistImg {
+    width: 15rem;
+  }
+}

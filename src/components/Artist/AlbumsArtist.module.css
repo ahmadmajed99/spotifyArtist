@@ -1,0 +1,75 @@
+.container {
+}
+
+.header {
+  background-color: #121212;
+  color: #ffffff;
+  text-align: start;
+  padding-left: 4rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  margin-bottom: 2rem;
+}
+
+.artistImg {
+  width: 16rem;
+  height: 20rem;
+  background-size: cover;
+}
+
+.card {
+  border: 1px solid black;
+  width: 16rem;
+  height: 30.5rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 1rem;
+}
+
+.artistName,
+.albumRelease,
+.albumTrack {
+  margin: 0.2rem;
+}
+
+.albumTrack {
+  margin-bottom: 1rem;
+}
+
+.details h2 {
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.albumsLink {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.2rem;
+}
+
+.previewBtn {
+  width: 16rem;
+  background-color: #121212;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.2rem;
+  cursor: pointer;
+  border: none;
+}
