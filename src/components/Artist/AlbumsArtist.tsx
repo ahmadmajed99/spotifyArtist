@@ -30,8 +30,6 @@ const AlbumsArtist = () => {
   };
 
   useEffect(() => {
-    console.log(albumsData);
-
     if (albumsData.length === 0) {
       navigate("/app");
     }

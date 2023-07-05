@@ -11,14 +11,14 @@
 
 .artistImg {
   width: 16rem;
-  height: 20rem;
+  height: 17rem;
   background-size: cover;
 }
 
 .card {
   border: 1px solid black;
   width: 16rem;
-  height: 30rem;
+  height: 27rem;
 }
 
 .details {

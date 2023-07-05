@@ -1,4 +1,5 @@
 import SpotifyWebApi from "spotify-web-api-js";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { BiLogOut } from "react-icons/bi";
 import styles from "./SpotifyServices.module.css";
@@ -45,6 +46,8 @@ export const searchArtist = async (query: string) => {
 
   const token = localStorage.getItem("token");
 
+  localStorage.setItem("query", query);
+
   return axios
     .get(url, {
       headers: {
@@ -55,7 +58,6 @@ export const searchArtist = async (query: string) => {
     })
     .then((response: any) => {
       const artists = response.data.artists.items;
-      localStorage.setItem("query", query);
       return artists;
     })
     .catch((error) => {

@@ -5,17 +5,12 @@ import DefaultImg from "assets/defaultImg.jpeg";
 import { getArtistAlbums } from "components/SpotifyServices/SpotifyService";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
 
 interface SearchResultsProps {
   searchResults: any[];
-  artistQuery: any;
 }
 
-const BrowsingArtist: React.FC<SearchResultsProps> = ({
-  searchResults,
-  artistQuery,
-}) => {
+const BrowsingArtist: React.FC<SearchResultsProps> = ({ searchResults }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const MAX_POPULARITY = 100;
@@ -30,7 +25,6 @@ const BrowsingArtist: React.FC<SearchResultsProps> = ({
     const albums = await getArtistAlbums(artistId);
     dispatch({ type: "SET_ARTIST_ALBUM", artistAlbum: albums });
     dispatch({ type: "SET_ARTIST_NAME", artistName: artistName });
-    dispatch({ type: "SET_ARTIST_QUERY", artistQuery: artistQuery });
     navigate(`/artist/${artistId}/albums`);
     window.scrollTo(0, 0);
   };

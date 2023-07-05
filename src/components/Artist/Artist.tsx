@@ -15,30 +15,26 @@ const Artist = () => {
   const [artistQuery, setArtistQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
 
-  const [recentsSearch, setRecentSearch] = useState<boolean>(false);
-
   const handleSearch = () => {
     if (artistQuery.length > 0)
       searchArtist(artistQuery).then((artists) => {
         setSearchResults(artists);
       });
   };
-  const artistt: string = useSelector(
-    (state: string | any) => state.artistQuery
-  );
 
-  useEffect(() => {
-    handleSearch();
+  const recentSearch = () => {
     const query = localStorage.getItem("query");
-    if (query !== artistt) {
-      localStorage.removeItem("query");
-      setRecentSearch(false);
-    } else {
+    console.log("query:", query);
+    if (query !== null) {
       searchArtist(query).then((artists) => {
         setSearchResults(artists);
       });
-      setRecentSearch(true);
     }
+  };
+
+  useEffect(() => {
+    handleSearch();
+    recentSearch();
   }, [artistQuery]);
 
   const items: MenuProps["items"] = [
@@ -102,16 +98,9 @@ const Artist = () => {
           <BsSearch />
         </button>
       </div>
-      {recentsSearch && (
-        <div className={styles.recentSearch}>Recent Search</div>
-      )}
-
       <div className={styles.resultContainer}>
         {searchResults.length > 0 ? (
-          <BrowsingArtist
-            searchResults={searchResults}
-            artistQuery={artistQuery}
-          />
+          <BrowsingArtist searchResults={searchResults} />
         ) : (
           <h3>No search provided</h3>
         )}
