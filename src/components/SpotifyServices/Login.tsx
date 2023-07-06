@@ -10,7 +10,7 @@ const Login = () => {
   const handleProgress = () => {
     setTimeout(() => {
       setProgress(true);
-    }, 200);
+    }, 100);
   };
 
   return (

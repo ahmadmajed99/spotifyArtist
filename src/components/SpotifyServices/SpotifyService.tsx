@@ -28,7 +28,7 @@ export const HandleLoginRedirect = () => {
   const accessToken: any = urlParams.get("access_token");
   const dispatch = useDispatch();
 
-  localStorage.setItem("token", accessToken);
+  localStorage.setItem("access_token_spotify", accessToken);
 
   if (accessToken) {
     // Example: Get user profile information
@@ -44,7 +44,7 @@ export const searchArtist = async (query: string) => {
     query
   )}&type=artist`;
 
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("access_token_spotify");
 
   localStorage.setItem("query", query);
 
@@ -69,7 +69,7 @@ export const searchArtist = async (query: string) => {
 export const getArtistAlbums = async (artistId: string) => {
   const url = `https://api.spotify.com/v1/artists/${artistId}/albums`;
 
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("access_token_spotify");
   return axios
     .get(url, {
       headers: {
@@ -93,7 +93,7 @@ export const LogoutFromSpotify = () => {
 
   const handleLogout = () => {
     navigate("/");
-    localStorage.removeItem("token");
+    localStorage.removeItem("access_token_spotify");
     spotifyApi.setAccessToken(null);
   };
 

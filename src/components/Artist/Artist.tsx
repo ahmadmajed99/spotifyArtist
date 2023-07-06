@@ -15,6 +15,8 @@ const Artist = () => {
   const [artistQuery, setArtistQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
 
+  const token = localStorage.getItem("access_token_spotify");
+
   const handleSearch = () => {
     if (artistQuery.length > 0)
       searchArtist(artistQuery).then((artists) => {
@@ -24,7 +26,6 @@ const Artist = () => {
 
   const recentSearch = () => {
     const query = localStorage.getItem("query");
-    console.log("query:", query);
     if (query !== null) {
       searchArtist(query).then((artists) => {
         setSearchResults(artists);
