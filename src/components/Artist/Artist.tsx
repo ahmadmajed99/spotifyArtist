@@ -86,6 +86,7 @@ const Artist = () => {
       <div className={styles.r2}>
         <input
           type="text"
+          name="search"
           placeholder="Search for an artist ..."
           className={styles.input}
           value={artistQuery}

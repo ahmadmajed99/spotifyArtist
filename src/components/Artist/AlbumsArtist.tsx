@@ -44,40 +44,32 @@ const AlbumsArtist = () => {
 
       <div className={styles.wrapper}>
         {albumsData?.map((album: any) => (
-          <>
-            <div key={album.id} className={styles.card}>
-              {album.images[0]?.url ? (
-                <img
-                  src={album?.images[0]?.url}
-                  alt="hello"
-                  className={styles.artistImg}
-                />
-              ) : (
-                <img
-                  src={DefaultImg}
-                  alt="hello"
-                  className={styles.artistImg}
-                />
-              )}
-              <div className={styles.details}>
-                <h2>{extractText(`${album?.name}`)}</h2>
-                <p className={styles.artistName}>{artistName}</p>
-                <p className={styles.albumRelease}>{album?.release_date}</p>
-                <p className={styles.albumTrack}>
-                  {album?.total_tracks} <span>tracks</span>
-                </p>
-              </div>
-              <a
-                href={album?.external_urls?.spotify}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button className={styles.previewBtn}>
-                  Preview On Spotify
-                </button>
-              </a>
+          <div key={album.id} className={styles.card}>
+            {album.images[0]?.url ? (
+              <img
+                src={album?.images[0]?.url}
+                alt="hello"
+                className={styles.artistImg}
+              />
+            ) : (
+              <img src={DefaultImg} alt="hello" className={styles.artistImg} />
+            )}
+            <div className={styles.details}>
+              <h2>{extractText(`${album?.name}`)}</h2>
+              <p className={styles.artistName}>{artistName}</p>
+              <p className={styles.albumRelease}>{album?.release_date}</p>
+              <p className={styles.albumTrack}>
+                {album?.total_tracks} <span>tracks</span>
+              </p>
             </div>
-          </>
+            <a
+              href={album?.external_urls?.spotify}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className={styles.previewBtn}>Preview On Spotify</button>
+            </a>
+          </div>
         ))}
       </div>
     </div>
